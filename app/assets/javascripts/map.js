@@ -5,6 +5,17 @@
 function initialize() {
 
   var markers = [];
+
+  var places = [{title:'Place 1',
+                  description:'Description 1',
+                  position: new google.maps.LatLng(46.75625, 23.557906)},
+                {title:'Place 2',
+                  description:'Description 2',
+                  position:new google.maps.LatLng(46.76, 23.56)},
+                {title:'Place 3',
+                  description:'Description 3',
+                  position:new google.maps.LatLng(46.74, 23.54)}];
+
   var map = new google.maps.Map(document.getElementById('map-canvas'), {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
@@ -63,6 +74,21 @@ function initialize() {
 
     map.fitBounds(bounds);
   });
+
+  var myLatlng = new google.maps.LatLng(46.75625, 23.557906);
+  var marker = new google.maps.Marker({
+    position: myLatlng,
+    map: map,
+    title:"Hello World!"
+  });
+
+  //for(place in places){
+  //  new google.maps.Marker({
+  //    position: place.position,
+  //    map: map,
+  //    title: place.title
+  //  });
+  //}
 
   // Bias the SearchBox results towards places that are within the bounds of the
   // current map's viewport.

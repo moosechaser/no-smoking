@@ -11,9 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20141104101915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "venues", force: true do |t|
+    t.string   "name"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "link"
+    t.string   "address"
+    t.integer  "venue_type"
+    t.integer  "smoking_policy"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

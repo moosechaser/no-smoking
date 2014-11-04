@@ -5,6 +5,16 @@ class Venue < ActiveRecord::Base
   PASTRY_SHOP = 3
 
   #smoking_policy constants
-  All_NON_SMOKING = 1
+  ALL_NON_SMOKING = 1
   NON_SMOKING_AREA = 2
+
+  def readable_venue_type
+    hash = {
+      RESTAURANT => "Restaurant",
+      COFFEE_SHOP => "Coffee Shop",
+      PASTRY_SHOP => "Pastry Shop"
+    }
+
+    return hash[self.venue_type]
+  end
 end

@@ -18,6 +18,10 @@ class VenueIndexPage
 
 
   #venue details
+  def has_show_link_for?(venue)
+    has_css? show_link_for(venue)
+  end
+
   def has_url_for?(venue)
     has_css? url_for(venue)
   end
@@ -40,6 +44,9 @@ class VenueIndexPage
     ".venues"
   end
 
+  def show_link_for(venue)
+    "#{venues_list} a[href='#{venue_path venue}']"
+  end
   def url_for(venue)
     "#{venues_list} a[href='http://#{venue.link}'][target='_blank']"
   end

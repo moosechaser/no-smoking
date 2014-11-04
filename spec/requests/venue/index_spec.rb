@@ -28,6 +28,8 @@ describe "venues#index" do
                          smoking_policy:  Venue::ALL_NON_SMOKING) }
     before { ui.visit_page }
 
+
+    it { expect(ui).to have_show_link_for venue }
     it { expect(ui).to have_url_for venue }
     it { expect(ui).to have_address_for venue }
     it "should have the venue's type" do

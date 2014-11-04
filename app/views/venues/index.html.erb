@@ -25,7 +25,7 @@
           <td><%= venue.longitude %></td>
           <td><%= link_to "#{venue.link}", "http://#{venue.link}", target: "_blank" %></td>
           <td><%= venue.address %></td>
-          <td><%= venue.venue_type %></td>
+          <td><%= venue.readable_venue_type %></td>
           <td><%= venue.smoking_policy %></td>
           <td><%= link_to 'Show', venue %></td>
           <td><%= link_to 'Edit', edit_venue_path(venue) %></td>

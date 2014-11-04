@@ -26,7 +26,6 @@ describe "venues#index" do
       FactoryGirl.create(:venue, 
                          venue_type:      Venue::RESTAURANT,
                          smoking_policy:  Venue::ALL_NON_SMOKING) }
-
     before { ui.visit_page }
 
     it { expect(ui).to have_link_for venue }

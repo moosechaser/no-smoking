@@ -15,7 +15,7 @@ html, body, #map-canvas {
 
 .overlay-body {
     /* Margin bottom by footer height */
-    min-height: 100%;
+    height: 100%;
     margin-bottom: 40px;
     padding:10px;
 }
@@ -29,4 +29,10 @@ html, body, #map-canvas {
     background-color: white;
     padding:10px;
     text-align:center;
+}
+
+.scrollable{
+    overflow:hidden;
+    overflow-y:scroll;
+    height: 500px;
 }

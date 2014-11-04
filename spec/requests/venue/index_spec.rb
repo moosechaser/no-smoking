@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "venues#index" do
-  let!(:ui) { VenueIndexPage.new( venues_path ) }
+  let!(:ui) { VenueIndexPage.new }
 
   before do
     ui.visit_page

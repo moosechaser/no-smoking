@@ -1,8 +1,9 @@
 class VenueIndexPage
   include Capybara::DSL
+  include Rails.application.routes.url_helpers
 
-  def initialize(path)
-    @page_path = path
+  def initialize
+    @page_path = venues_path
   end
 
   def visit_page

@@ -4,8 +4,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
       <th>Link</th>
       <th>Address</th>
       <th>Venue type</th>
@@ -18,16 +16,13 @@
     <tbody>
       <% @venues.each do |venue| %>
         <tr>
-          <td><%= venue.name %></td>
-          <td><%= venue.latitude %></td>
-          <td><%= venue.longitude %></td>
+          <td><%= link_to venue.name, venue %></td>
           <td><%= link_to "#{venue.link}", "http://#{venue.link}", target: "_blank" %></td>
           <td><%= venue.address %></td>
           <td><%= venue.readable_venue_type %></td>
           <td><%= venue.smoking_policy %></td>
-          <td><%= link_to 'Show', venue %></td>
-          <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
-          <td><%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <!-- <td><%= link_to 'Edit', edit_venue_path(venue), id: "edit_#{venue.id}" %></td> -->
+          <!-- <td><%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' }, id: "destroy_#{venue.id}" %></td> -->
         </tr>
       <% end %>
     </tbody>

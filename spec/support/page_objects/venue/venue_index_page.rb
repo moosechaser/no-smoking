@@ -18,12 +18,20 @@ class VenueIndexPage
 
 
   #venue details
-  def has_link_for?(venue)
-    has_css? link_for(venue)
+  def has_url_for?(venue)
+    has_css? url_for(venue)
   end
 
   def has_address_for?(venue)
     has_css? venues_list, text: venue.address
+  end
+
+  def has_edit_button_for?(venue)
+    has_css? edit_button_for(venue)
+  end
+
+  def has_destroy_button_for?(venue)
+    has_css? destroy_button_for(venue)
   end
 
 
@@ -32,11 +40,19 @@ class VenueIndexPage
     ".venues"
   end
 
-  def link_for(venue)
+  def url_for(venue)
     "#{venues_list} a[href='http://#{venue.link}'][target='_blank']"
   end
 
   def address_for(venue)
     "#{venues_list}"
+  end
+
+  def edit_button_for(venue)
+    "#{venues_list} a#edit_#{venue.id}"
+  end
+
+  def destroy_button_for(venue)
+    "#{venues_list} a#destroy_#{venue.id}"
   end
 end

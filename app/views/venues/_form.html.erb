@@ -33,11 +33,13 @@
   </div>
   <div class="field">
     <%= f.label :venue_type %><br>
-    <%= f.number_field :venue_type %>
+    <%= select_tag :venue_type, options_for_select(@venue.all_venue_types, 1) %>
   </div>
   <div class="field">
     <%= f.label :smoking_policy %><br>
-    <%= f.number_field :smoking_policy %>
+    <%= select_tag :smoking_policy, options_for_select(@venue.all_smoking_policies, 1) %>
+    <%# <%= f.label :smoking_policy %><br>
+    <%# <%= f.number_field :smoking_policy %>
   </div>
   <div class="actions">
     <%= f.submit nil, id: "submit" %>

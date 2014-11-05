@@ -17,4 +17,19 @@ class Venue < ActiveRecord::Base
 
     return hash[self.venue_type]
   end
+
+  def all_venue_types
+    return [ 
+      ["Restaurant", RESTAURANT],
+      ["Coffee Shop", COFFEE_SHOP],
+      ["Pastry Shop", PASTRY_SHOP]
+    ]
+  end
+
+  def all_smoking_policies
+    return [ 
+      ["Entire restaurant is non-smoking", ALL_NON_SMOKING],
+      ["Restaurant has a non-smoking section", NON_SMOKING_AREA]
+    ]
+  end
 end

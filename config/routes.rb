@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'static_pages#map_test'
+  post '/send_new_venue_email' => "admin#send_new_venue_email"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

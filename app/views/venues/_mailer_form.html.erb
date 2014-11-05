@@ -1,0 +1,33 @@
+<%= form_tag send_new_venue_email_path do %>
+  <div class="field">
+    <%= label_tag 'name', 'Venue Name' %><br>
+    <%= text_field_tag :name %>
+  </div>
+  <div class="field">
+    <%= label_tag 'latitude', 'Latitude' %><br>
+    <%= text_field_tag :latitude %>
+  </div>
+  <div class="field">
+    <%= label_tag 'longitude', 'longitude' %><br>
+    <%= text_field_tag :longitude %>
+  </div>
+  <div class="field">
+    <%= label_tag 'link', 'link' %><br>
+    <%= text_field_tag :link %>
+  </div>
+  <div class="field">
+    <%= label_tag 'address', 'address' %><br>
+    <%= text_field_tag :address %>
+  </div>
+  <div class="field">
+    <%= label_tag :venue_type %><br>
+    <%= select_tag :venue_type, options_for_select(@venue.all_venue_types, 1) %>
+  </div>
+  <div class="field">
+    <%= label_tag :smoking_policy %><br>
+    <%= select_tag :smoking_policy, options_for_select(@venue.all_smoking_policies, 1) %>
+  </div>
+
+  <%= submit_tag "Submit", id: "submit" %>
+
+<% end %>

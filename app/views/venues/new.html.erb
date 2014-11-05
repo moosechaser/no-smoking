@@ -1,5 +1,9 @@
 <h1>New venue</h1>
 
-<%= render 'form' %>
+<%# if admin not signed in %>
+<%= render 'mailer_form' %>
+
+<%# if admin signed in %>
+<%# <%= render 'form' %>
 
 <%= link_to 'Back', venues_path %>

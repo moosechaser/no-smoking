@@ -33,7 +33,7 @@ function initialize() {
     for(var i = 0;i<venues.length;i++) {
       var venue = venues[i];
       new google.maps.Marker({
-        position: new google.maps.LatLng(venue.lat, venue.lng),
+        position: new google.maps.LatLng(venue.latitude, venue.longitude),
         map: map,
         title: venue.title
       });

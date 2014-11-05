@@ -3,6 +3,11 @@ class VenuesController < ApplicationController
 
   def index
     @venues = Venue.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @venues.map{|v| {name: v.name, lat:v.latitude, lng: v.longitude }}.to_json }
+    end
   end
 
   def show

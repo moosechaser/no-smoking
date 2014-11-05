@@ -26,10 +26,8 @@
   <div class="field">
     <%= label_tag :smoking_policy %><br>
     <%= select_tag :smoking_policy, options_for_select(@venue.all_smoking_policies, 1) %>
-    <%# <%= f.label :smoking_policy %><br>
-    <%# <%= f.number_field :smoking_policy %>
   </div>
 
-  <%= submit_tag "Submit" %>
+  <%= submit_tag "Submit", id: "submit" %>
 
 <% end %>

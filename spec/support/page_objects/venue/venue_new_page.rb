@@ -30,13 +30,8 @@ class VenueNewPage
     find(:css, @name_input ).set attrs[:name]
     find(:css, @link_input ).set attrs[:link]
     find(:css, @address_input ).set attrs[:address]
-    #TODO: use select from capybara method to choose venue type and
-    #smoking policy
     select_venue_type attrs[:venue_type]
     select_smoking_policy attrs[:smoking_policy]
-
-    # find(:css, @venue_type_input ).set attrs[:venue_type]
-    # find(:css, @venue_smoking_policy_input ).set attrs[:smoking_policy]
 
     page.find(@submit_button).click
   end

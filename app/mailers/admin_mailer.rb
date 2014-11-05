@@ -1,5 +1,5 @@
 class AdminMailer < ActionMailer::Base
-  default to: "fun.fara.fum@gmail.com"
+  default to: "thomas.imorris@gmail.com"
   default from: "new.venue@funfarafum.com"
 
   def new_venue_email(venue_name, latitude, longitude, link, address,

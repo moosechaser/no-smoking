@@ -1,11 +1,16 @@
 <% provide(:title, "New Venue") %>
 
-<h1>New venue</h1>
+<div class="container">
 
-<%# if admin not signed in %>
-<%= render 'mailer_form' %>
+  <h1>New venue</h1>
 
-<%# if admin signed in %>
-<%# <%= render 'form' %>
+  <div class="row">
+    <%# if admin not signed in %>
+    <%= render 'mailer_form' %>
+  </div>
+  <%# if admin signed in %>
+  <%# <%= render 'form' %>
 
-<%= link_to 'Back', venues_path %>
+  <%= link_to 'Back', venues_path %>
+
+</div>

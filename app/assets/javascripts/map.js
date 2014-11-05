@@ -22,7 +22,25 @@ function initialize() {
       position: google.maps.ControlPosition.RIGHT_BOTTOM
     }
   };
+
   var map = new google.maps.Map(document.getElementById('map-canvas'),
     mapOptions);
+
+  $.ajax({
+    url: "venues.json"
+  }).done(function(venues) {
+
+    for(var i = 0;i<venues.length;i++) {
+      var venue = venues[i];
+      new google.maps.Marker({
+        position: new google.maps.LatLng(venue.latitude, venue.longitude),
+        map: map,
+        title: venue.title
+      });
+    }
+
+  });
+
+
 }
 google.maps.event.addDomListener(window, 'load', initialize);

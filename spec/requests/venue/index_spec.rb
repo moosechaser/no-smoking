@@ -40,8 +40,4 @@ describe "venues#index" do
     it { expect(ui).not_to have_edit_button_for venue }
     it { expect(ui).not_to have_destroy_button_for venue }
   end
-
-  context "when logged in as an admin" do
-    pending
-  end
 end

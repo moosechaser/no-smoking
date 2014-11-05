@@ -32,5 +32,16 @@
       <h4>Smoking Policy</h4>
       <span id="smoking_policy"><%= @smoking_policy %></span>
     </p>
+    <% if @email != "" %>
+      <p>
+        <h4>Submitter's email</h4>
+        <span id="email"><%= @email %></span>
+      </p>
+    <% else %>
+      <p>The submitter did not leave an email</p>
+    <% end %>
+    <p>
+    
+    </p>
   </body>
 </html>

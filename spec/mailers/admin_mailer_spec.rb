@@ -3,7 +3,9 @@ require "spec_helper"
 describe AdminMailer do
   describe "AdminMailer#new_venue_email" do
     let!(:venue) { FactoryGirl.create(:venue) }
-    let!(:mail) { AdminMailer.new_venue_email(venue.name, venue.latitude,
+    let!(:maker_email) { "asdf@asdf.com" }
+    let!(:mail) { AdminMailer.new_venue_email(maker_email, venue.name,
+                                              venue.latitude,
                                               venue.longitude, venue.link,
                                               venue.address,
                                               venue.venue_type,
@@ -12,6 +14,11 @@ describe AdminMailer do
     it "has the right recipient" do
       expect(mail.to)
         .to eq ["thomas.imorris@gmail.com"]
+    end
+    
+    it "has the email in the body" do
+      expect(mail.body.encoded)
+        .to have_css "#email", text: maker_email
     end
     
     it "has the name in the body" do

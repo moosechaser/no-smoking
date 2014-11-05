@@ -3,13 +3,13 @@ class VenueNewPage
   include Rails.application.routes.url_helpers
 
   def initialize(venue)
-    @page_path = edit_venue_path venue
+    @page_path = new_venue_path
 
-    @name_input =                   "#venue_name"
-    @latitude_input =               "#venue_latitude"
-    @longitude_input =              "#venue_longitude"
-    @link_input =                   "#venue_link"
-    @address_input =                "#venue_address"
+    @name_input =                   "#name"
+    @latitude_input =               "#latitude"
+    @longitude_input =              "#longitude"
+    @link_input =                   "#link"
+    @address_input =                "#address"
     @venue_type_input =             "#venue_type"
     @venue_smoking_policy_input =   "#smoking_policy"
 

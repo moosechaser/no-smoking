@@ -1,6 +1,11 @@
 <%= form_tag send_new_venue_email_path do %>
 
   <div class="field">
+    <%= label_tag 'Email', 'Your email address (optional)' %><br>
+    <%= text_field_tag :email %>
+  </div>
+
+  <div class="field">
     <%= label_tag 'name', 'Venue Name' %><br>
     <%= text_field_tag :name %>
   </div>

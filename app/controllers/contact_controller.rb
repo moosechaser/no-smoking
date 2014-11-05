@@ -10,7 +10,7 @@ class ContactController < ApplicationController
     venue_type =      received_params[:venue_type]
     smoking_policy =  received_params[:smoking_policy]
 
-    AdminMailer.new_venue_email( name, latitude, longitude, link, address,
+    AdminMailer.new_venue_email(name, latitude, longitude, link, address,
                                 venue_type, smoking_policy).deliver
 
     redirect_to venues_path, notice: "Your venue has been submitted.  It will be posted after it is approved by an admin. Thanks!"

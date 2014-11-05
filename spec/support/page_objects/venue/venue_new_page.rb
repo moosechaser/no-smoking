@@ -5,6 +5,7 @@ class VenueNewPage
   def initialize(venue)
     @page_path = new_venue_path
 
+    @email_input =                  "#email"
     @name_input =                   "#name"
     @latitude_input =               "#latitude"
     @longitude_input =              "#longitude"
@@ -26,10 +27,12 @@ class VenueNewPage
     visit @page_path
   end
 
-  def create_new_venue_with_attributes( attrs )
-    find(:css, @name_input ).set attrs[:name]
-    find(:css, @link_input ).set attrs[:link]
-    find(:css, @address_input ).set attrs[:address]
+  def create_new_venue_with_attributes( attrs, options = {} )
+    find( @email_input ).set options[:sender]
+
+    find( @name_input ).set attrs[:name]
+    find( @link_input ).set attrs[:link]
+    find( @address_input ).set attrs[:address]
     select_venue_type attrs[:venue_type]
     select_smoking_policy attrs[:smoking_policy]
 

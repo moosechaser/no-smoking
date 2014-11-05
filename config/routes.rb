@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   resources :venues
 
   get 'maptest' => 'static_pages#map_test'

@@ -38,9 +38,6 @@ function initialize() {
         title: venue.title
       });
     }
-
   });
-
-
 }
 google.maps.event.addDomListener(window, 'load', initialize);

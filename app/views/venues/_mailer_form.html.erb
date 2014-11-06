@@ -41,13 +41,21 @@
     </div>
     <div class="col-md-6">
       <div id="map-search"></div>
-      <%= label_tag 'latitude', 'Lat:' %>
-      <%= text_field_tag :latitude, nil, {id: "input-lat", 
-                                          readonly: "readonly"} %>
+      <div class="col-xs-6">
+        <%# <%= label_tag 'latitude', 'Lat:' %>
+        <%= text_field_tag :latitude, nil, {id: "input-lat", 
+                                            class: "form-control",
+                                            placeholder: "Latitude",
+                                            readonly: "readonly"} %>
+      </div>
 
-      <%= label_tag 'longitude', 'Lng:' %>
-      <%= text_field_tag :longitude, nil, {id: "input-lng", 
-                                           readonly: "readonly"} %>
+      <div class="col-xs-6">
+        <%# <%= label_tag 'longitude', 'Lng:' %>
+        <%= text_field_tag :longitude, nil, {id: "input-lng", 
+                                             class: "form-control",
+                                             placeholder: "Longitude",
+                                             readonly: "readonly"} %>
+      </div>
     </div>
   </div>
 

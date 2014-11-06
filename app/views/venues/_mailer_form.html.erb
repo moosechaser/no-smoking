@@ -1,43 +1,40 @@
 <%= form_tag send_new_venue_email_path do %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="field">
+        <%= label_tag 'Email', 'Your email address (optional)' %><br>
+        <%= text_field_tag :email, nil, class: "form-control" %>
+      </div>
 
-  <div class="col-md-6">
-    <div class="field">
-      <%= label_tag 'Email', 'Your email address (optional)' %><br>
-      <%= text_field_tag :email, nil, class: "form-control" %>
-    </div>
-
-    <div class="control-group">
-      <%= label_tag 'name', 'Venue Name' %><br>
-      <%= text_field_tag :name, nil, class: "form-control" %>
-    </div>
-    <div class="control-group">
-      <%= label_tag 'latitude', 'Latitude' %><br>
-      <%= text_field_tag :latitude, nil, class: "form-control", id:"inputLat" %>
-    </div>
-    <div class="control-group">
-      <%= label_tag 'longitude', 'Longitude' %><br>
-      <%= text_field_tag :longitude, nil, class: "form-control", id:"inputLng" %>
-    </div>
-    <div class="control-group">
-      <%= label_tag 'link', 'link' %><br>
-      <%= text_field_tag :link, nil, class: "form-control" %>
-    </div>
+      <div class="control-group">
+        <%= label_tag 'name', 'Venue Name' %><br>
+        <%= text_field_tag :name, nil, class: "form-control" %>
+      </div>
+      <div class="control-group">
+        <%= label_tag 'link', 'link' %><br>
+        <%= text_field_tag :link, nil, class: "form-control" %>
+      </div>
+      <!--
     <div class="control-group">
       <%= label_tag 'address', 'address' %><br>
       <%= text_field_tag :address, nil, class: "form-control" %>
     </div>
-    <div class="control-group">
-      <%= label_tag :venue_type %><br>
-      <%= select_tag :venue_type, options_for_select(@venue.all_venue_types, 1), class: "form-control" %>
+    -->
+      <div class="control-group">
+        <%= label_tag :venue_type %><br>
+        <%= select_tag :venue_type, options_for_select(@venue.all_venue_types, 1), class: "form-control" %>
+      </div>
+      <div class="control-group">
+        <%= label_tag :smoking_policy %><br>
+        <%= select_tag :smoking_policy, options_for_select(@venue.all_smoking_policies, 1), class: "form-control" %>
+      </div>
     </div>
-    <div class="control-group">
-      <%= label_tag :smoking_policy %><br>
-      <%= select_tag :smoking_policy, options_for_select(@venue.all_smoking_policies, 1), class: "form-control" %>
-    </div>
-    <%= submit_tag "Submit", id: "submit", class: "btn btn-primary" %>
-  </div>
-  <div class="col-md-6">
-    <div id="map-search"></div>
-  </div>
+    <div class="col-md-6">
+      <div id="map-search"></div>
+      <div id="chosen-coordinates">
 
+      </div>
+    </div>
+  </div>
+  <%= submit_tag "Submit", id: "submit", class: "btn btn-primary" %>
 <% end %>

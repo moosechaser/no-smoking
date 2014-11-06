@@ -10,10 +10,11 @@ class ContactController < ApplicationController
     address =         received_params[:address]
     venue_type =      received_params[:venue_type]
     smoking_policy =  received_params[:smoking_policy]
+    description =     received_params[:description]
 
     AdminMailer.new_venue_email(email, name, latitude, longitude, link,
                                 address, venue_type,
-                                smoking_policy).deliver
+                                smoking_policy, description).deliver
 
     redirect_to venues_path, notice: "Your venue has been submitted.  It will be posted after it is approved by an admin. Thanks!"
   end
@@ -21,6 +22,6 @@ class ContactController < ApplicationController
   private
     def email_params
       params.permit(:email, :name, :latitude, :longitude, :link, :address,
-                    :venue_type, :smoking_policy)
+                    :venue_type, :smoking_policy, :description)
     end
 end

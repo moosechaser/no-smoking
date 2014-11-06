@@ -31,6 +31,7 @@ class Venue < ActiveRecord::Base
 
   def all_smoking_policies
     return [ 
+      ["--", BLANK],
       ["Entire restaurant is non-smoking", ALL_NON_SMOKING],
       ["Restaurant has a non-smoking section", NON_SMOKING_AREA],
       ["Other", OTHER]

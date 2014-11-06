@@ -6,8 +6,9 @@
         <%= label_tag 'name', 'Venue Name' %>
         <%= text_field_tag :name, nil, class: "form-control" %>
       </div>
+
       <div class="form-group">
-        <%= label_tag 'link', 'Link to their website' %>
+        <%= label_tag 'link', 'Their website address' %>
         <%= text_field_tag :link, nil, class: "form-control" %>
       </div>
       <!--
@@ -22,12 +23,14 @@
           options_for_select(@venue.all_venue_types, 0), 
           class: "form-control" %>
       </div>
+
       <div class="form-group">
         <%= label_tag :smoking_policy %>
-        <%= select_tag :smoking_policy, options_for_select(@venue.all_smoking_policies, 1), class: "form-control" %>
+        <%= select_tag :smoking_policy, options_for_select(@venue.all_smoking_policies, 0), class: "form-control" %>
       </div>
+
       <div class="form-group">
-        <%= label_tag 'description', 'Describe it in a few words if you want' %>
+        <%= label_tag 'description', 'Describe the place (optional)' %>
         <%= text_area_tag :description, nil, class: "form-control", rows:3 %>
       </div>
 

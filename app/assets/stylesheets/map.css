@@ -31,10 +31,6 @@ html, body, #map-canvas {
     text-align: center;
 }
 
-.max-height {
-  height: 100%;
-}
-
 .scrollable{
     overflow: hidden;
     overflow-y: scroll;

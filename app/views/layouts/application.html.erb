@@ -9,11 +9,12 @@
 </head>
 <body>
 
-<%= render 'shared/navbar_top' %>
+  <div class="container-fluid max-height">
+    <%= render 'shared/navbar_top' %>
 
-<%= yield %>
+    <%= yield %>
 
-<%= render 'shared/footer' %>
-
+    <%= render 'shared/footer' %>
+  </div>
 </body>
 </html>

@@ -4,35 +4,8 @@ html, body, #map-canvas {
     padding: 0px
 }
 
-#map-overlay {
-    position: fixed;
-    top:10px;
-    left:10px;
-    background-color: #ffffff;
-    width:300px;
-    height:95%;
-}
-
-.overlay-body {
-    /* Margin bottom by footer height */
-    height: 100%;
-    margin-bottom: 40px;
-    padding:10px;
-}
-
-.overlay-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 40px;
-    background-color: white;
-    padding:10px;
-    text-align:center;
-}
-
-.scrollable{
-    overflow:hidden;
-    overflow-y:scroll;
-    height: 500px;
+.scrollable {
+    overflow: hidden;
+    overflow-y: scroll;
+    max-height: 84%;
 }

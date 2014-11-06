@@ -1,35 +1,24 @@
 <% provide(:title, "All Venues") %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Link</th>
-      <th>Address</th>
-      <th>Venue type</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="col-md-3 max-height">
+  <h1>No smoking</h1>
+  <p>The National Institute For Cancer Prevention At Parties</p>
 
-  <div class="venues">
-    <tbody>
+  <div class="scrollable">
+    <ul class="list-group venues">
+      <li class="list-group-item">
       <% @venues.each do |venue| %>
-        <tr>
-          <td><%= link_to venue.name, venue %></td>
-          <td><%= link_to "#{venue.link}", "http://#{venue.link}", target: "_blank" %></td>
-          <td><%= venue.address %></td>
-          <td><%= venue.readable_venue_type %></td>
-          <!-- <td><%= link_to 'Edit', edit_venue_path(venue), id: "edit_#{venue.id}" %></td> -->
-          <!-- <td><%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' }, id: "destroy_#{venue.id}" %></td> -->
-        </tr>
+        <h4> 
+          <%= link_to venue.name, venue %> 
+          <small> - <%= venue.readable_venue_type %></small>
+        </h4>
+        <%= link_to "#{venue.link}", "http://#{venue.link}", target: "_blank" %>
+        <!-- <td><%= link_to 'Edit', edit_venue_path(venue), id: "edit_#{venue.id}" %></td> -->
+        <!-- <td><%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' }, id: "destroy_#{venue.id}" %></td> -->
       <% end %>
-    </tbody>
+      </li>
+    </ul>
   </div>
-</table>
-
-<br>
-
-<%= link_to 'New Venue', new_venue_path %>
-
+</div>
 
 <div id="map-canvas"></div>

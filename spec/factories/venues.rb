@@ -10,6 +10,7 @@ FactoryGirl.define do
     address         "9999 Main St."
     venue_type      1
     smoking_policy  2
+    description     "description"
   end
 
 end

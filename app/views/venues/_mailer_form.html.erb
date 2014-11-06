@@ -2,38 +2,46 @@
   <div class="row">
     <div class="col-md-6">
       <div class="field">
-        <%= label_tag 'Email', 'Your email address (optional)' %><br>
+        <%= label_tag 'Email', 'Your email address (optional)' %>
         <%= text_field_tag :email, nil, class: "form-control" %>
+        <span class="help-block">We won't spam you, but we will send you an email if we need more details.</span>
       </div>
 
       <div class="control-group">
-        <%= label_tag 'name', 'Venue Name' %><br>
+        <%= label_tag 'name', 'Venue Name' %>
         <%= text_field_tag :name, nil, class: "form-control" %>
       </div>
       <div class="control-group">
-        <%= label_tag 'link', 'link' %><br>
+        <%= label_tag 'link', 'Link to their website' %>
         <%= text_field_tag :link, nil, class: "form-control" %>
       </div>
       <!--
     <div class="control-group">
-      <%= label_tag 'address', 'address' %><br>
+      <%= label_tag 'address', 'address' %>
       <%= text_field_tag :address, nil, class: "form-control" %>
     </div>
     -->
       <div class="control-group">
-        <%= label_tag :venue_type %><br>
+        <%= label_tag :venue_type %>
         <%= select_tag :venue_type, options_for_select(@venue.all_venue_types, 1), class: "form-control" %>
       </div>
       <div class="control-group">
-        <%= label_tag :smoking_policy %><br>
+        <%= label_tag :smoking_policy %>
         <%= select_tag :smoking_policy, options_for_select(@venue.all_smoking_policies, 1), class: "form-control" %>
+      </div>
+      <div class="control-group">
+        <%= label_tag 'description', 'Describe it in a few words if you want' %>
+        <%= text_area_tag :description, nil, class: "form-control", rows:3 %>
       </div>
     </div>
     <div class="col-md-6">
       <div id="map-search"></div>
-      <div id="chosen-coordinates">
+      <%= label_tag 'latitude', 'Lat:' %>
+      <%= text_field_tag :latitude, nil, id:"input-lat", readonly:"readonly" %>
 
-      </div>
+      <%= label_tag 'longitude', 'Lng:' %>
+      <%= text_field_tag :longitude, nil, id:"input-lng", readonly:"readonly" %>
+
     </div>
   </div>
   <%= submit_tag "Submit", id: "submit", class: "btn btn-primary" %>

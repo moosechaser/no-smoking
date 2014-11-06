@@ -21,7 +21,8 @@ function initializeSearch() {
     marker.setPosition(event.latLng);
 
     // set the latitude and longitude
-    $('#chosen-coordinates').html("Lat: "+event.latLng.lat()+" Lng:"+event.latLng.lng());
+    $('#input-lat').val(event.latLng.lat());
+    $('#input-lng').val(event.latLng.lng());
   });
 
 }

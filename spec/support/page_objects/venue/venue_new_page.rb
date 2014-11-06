@@ -10,7 +10,7 @@ class VenueNewPage
     @latitude_input =               "#latitude"
     @longitude_input =              "#longitude"
     @link_input =                   "#link"
-    @address_input =                "#address"
+    #@address_input =                "#address"
     @venue_type_input =             "#venue_type"
     @venue_smoking_policy_input =   "#smoking_policy"
 
@@ -32,7 +32,7 @@ class VenueNewPage
 
     find( @name_input ).set attrs[:name]
     find( @link_input ).set attrs[:link]
-    find( @address_input ).set attrs[:address]
+    #find( @address_input ).set attrs[:address]
     select_venue_type attrs[:venue_type]
     select_smoking_policy attrs[:smoking_policy]
 

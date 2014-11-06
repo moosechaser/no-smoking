@@ -2,3 +2,7 @@
     width:450px;
     height:450px;
 }
+
+#input-lat, #input-lng{
+    display:inline-block;
+}

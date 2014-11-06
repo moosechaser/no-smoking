@@ -8,11 +8,11 @@
     <ul class="list-group venues">
       <% @venues.each do |venue| %>
         <li class="list-group-item">
-        <h4> 
-          <%= link_to venue.name, venue %> 
+        <h4><%= link_to venue.name, venue %></h4>
+        <h6>
+          <%= link_to "#{venue.link}", "http://#{venue.link}", target: "_blank" %>
           <small> - <%= venue.readable_venue_type %></small>
-        </h4>
-        <%= link_to "#{venue.link}", "http://#{venue.link}", target: "_blank" %>
+        </h6>
         <!-- <td><%= link_to 'Edit', edit_venue_path(venue), id: "edit_#{venue.id}" %></td> -->
         <!-- <td><%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' }, id: "destroy_#{venue.id}" %></td> -->
         </li>

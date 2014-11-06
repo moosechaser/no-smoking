@@ -1,7 +1,6 @@
 <%= form_tag send_new_venue_email_path do %>
   <div class="row">
     <div class="col-md-6">
-
       <div class="form-group">
         <%= label_tag 'name', 'Venue Name' %>
         <%= text_field_tag :name, nil, class: "form-control" %>
@@ -31,7 +30,7 @@
 
       <div class="form-group">
         <%= label_tag 'description', 'Describe the place (optional)' %>
-        <%= text_area_tag :description, nil, class: "form-control", rows:3 %>
+        <%= text_area_tag :description, nil, class: "form-control", rows: 2 %>
       </div>
 
       <div class="form-group">

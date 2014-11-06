@@ -1,5 +1,7 @@
 <li class="<%= "active" if venues_page? %>">
-  <%= link_to "Home", root_path, 'data-no-turbolink' => true %>
+  <%= link_to root_path, 'data-no-turbolink' => true do %>
+    <span class="glyphicon glyphicon-home"></span> Home
+  <% end %>
 </li>
 
 

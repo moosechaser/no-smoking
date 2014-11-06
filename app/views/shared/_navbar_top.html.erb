@@ -14,25 +14,14 @@
 
 
       <%# Brand icon %>
-      <%= link_to root_path, class: "navbar-brand", 
-        'data-no-turbolink' => true do %>
-        <%= image_tag "brand-icon.png", height: "40", width: "40", 
-          title: "Back to home", alt: "The brand icon" %>
-      <% end %>
+      <%= render 'shared/brand_icon' %>
     </div>
 
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active">
-          <%= link_to "Home", root_path, 'data-no-turbolink' => true %>
-        </li>
-        <li>
-          <%= link_to new_venue_path, 'data-no-turbolink' => true do %>
-            <span class="glyphicon glyphicon-plus"></span>Add a venue
-          <% end %>
-        </li>
+        <%= render 'shared/navbar_buttons' %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

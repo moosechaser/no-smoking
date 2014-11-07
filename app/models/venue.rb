@@ -1,4 +1,7 @@
 class Venue < ActiveRecord::Base
+  validates_presence_of :latitude, :longitude, :name
+
+
   #venue_type constants
   OTHER       = -1
   BLANK       = 0

@@ -21,8 +21,16 @@ class VenuesController < ApplicationController
 
   def create
     @venue = Venue.new(venue_params)
-    @venue.save
-    respond_with(@venue)
+    if @venue.valid?
+      AdminMailer.new_venue_email(email_params[:email], @venue).deliver
+
+      redirect_to venues_path, notice: "Your venue has been submitted.  It will be posted after it is approved by an admin. Thanks!"
+    else
+      render new
+    end
+    #we will probably create the venue here later, now, for simplicity, we just send an email
+    #@venue.save
+    #respond_with(@venue)
   end
 
   def update
@@ -41,6 +49,10 @@ class VenuesController < ApplicationController
     end
 
     def venue_params
-      params.require(:venue).permit(:name, :latitude, :longitude, :link, :address, :venue_type, :smoking_policy)
+      params.require(:venue).permit(:name, :latitude, :longitude, :link, :address, :venue_type, :smoking_policy, :description)
+    end
+
+    def email_params
+      params.permit(:email)
     end
 end

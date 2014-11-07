@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'venues#index'
-  resources :venues, only: [:index, :show, :new]
+  resources :venues, only: [:index, :show, :new, :create]
 
   post '/send_new_venue_email' => "contact#send_new_venue_email"
 

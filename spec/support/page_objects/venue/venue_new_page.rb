@@ -7,8 +7,8 @@ class VenueNewPage
 
     @email_input =                  "#email"
     @name_input =                   "#name"
-    @latitude_input =               "#latitude"
-    @longitude_input =              "#longitude"
+    @latitude_input =               "#input-lat"
+    @longitude_input =              "#input-lng"
     @link_input =                   "#link"
     #@address_input =                "#address"
     @venue_type_input =             "#venue_type"
@@ -33,6 +33,8 @@ class VenueNewPage
     find( @name_input ).set attrs[:name]
     find( @link_input ).set attrs[:link]
     #find( @address_input ).set attrs[:address]
+    find( @latitude_input ).set attrs[:latitude]
+    find( @longitude_input ).set attrs[:longitude]
     select_venue_type attrs[:venue_type]
     select_smoking_policy attrs[:smoking_policy]
 

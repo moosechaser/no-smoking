@@ -1,4 +1,9 @@
 function initialize() {
+  var mapElement = document.getElementById('map-canvas');
+
+  if(!mapElement) return;
+
+
   var mapOptions = {
     center: { lat: 46.7667, lng: 23.5833},
     zoom: 13,
@@ -23,8 +28,8 @@ function initialize() {
     }
   };
 
-  var map = new google.maps.Map(document.getElementById('map-canvas'),
-    mapOptions);
+
+  var map = new google.maps.Map(mapElement, mapOptions);
 
   $.ajax({
     url: "venues.json"

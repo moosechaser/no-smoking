@@ -1,39 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @venue.name %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <%= hidden_field_tag "venue_id", @venue.id %>
+      <h1><%= @venue.name %></h1>
+      <p>
+        <strong>Venue type:</strong>
+        <%= @venue.venue_type %>
+      </p>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @venue.latitude %>
-</p>
+      <p>
+        <strong>Smoking policy:</strong>
+        <%= @venue.smoking_policy %>
+      </p>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @venue.longitude %>
-</p>
+      <p><%= @venue.description %></p>
+      <!--<p>-->
+        <!--<strong>Address:</strong>-->
+        <!--<%= @venue.address %>-->
+      <!--</p>-->
+      <p>
+        <strong>Link:</strong>
+        <%= @venue.link %>
+      </p>
 
-<p>
-  <strong>Link:</strong>
-  <%= @venue.link %>
-</p>
+    </div>
+    <div class="col-md-6">
+      <div id="map-show">
 
-<p>
-  <strong>Address:</strong>
-  <%= @venue.address %>
-</p>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Venue type:</strong>
-  <%= @venue.venue_type %>
-</p>
 
-<p>
-  <strong>Smoking policy:</strong>
-  <%= @venue.smoking_policy %>
-</p>
+  <%= link_to 'Edit', edit_venue_path(@venue) %> |
+  <%= link_to 'Back', venues_path %>
 
-<%= link_to 'Edit', edit_venue_path(@venue) %> |
-<%= link_to 'Back', venues_path %>
+</div>

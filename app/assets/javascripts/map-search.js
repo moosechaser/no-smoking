@@ -1,4 +1,8 @@
 function initializeSearch() {
+  var mapElement = document.getElementById('map-search');
+
+  if(!mapElement) return;
+
   var mapOptions = {
     center: { lat: 46.7667, lng: 23.5833},
     zoom: 13,
@@ -9,8 +13,7 @@ function initializeSearch() {
     streetViewControl: true
   };
 
-  var map = new google.maps.Map(document.getElementById('map-search'),
-    mapOptions);
+  var map = new google.maps.Map(mapElement, mapOptions);
 
   var marker = new google.maps.Marker({
     map: map

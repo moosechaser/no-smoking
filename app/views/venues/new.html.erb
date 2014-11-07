@@ -1,15 +1,8 @@
 <% provide(:title, "New Venue") %>
 
 <div class="container">
+  <h1>Add a Place <small>Click the map to set the location</small>
+  </h1>
 
-  <h1>Tell us about a place you know</h1>
-
-  <%# if admin not signed in %>
   <%= render 'mailer_form' %>
-
-  <%# if admin signed in %>
-  <%# <%= render 'form' %>
-
-  <%= link_to 'Back', venues_path %>
-
 </div>

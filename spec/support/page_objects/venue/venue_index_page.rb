@@ -4,6 +4,9 @@ class VenueIndexPage
 
   def initialize
     @page_path = venues_path
+
+    @about_us_link = "a[href='#{about_us_path}']"
+    @contact_link = "a[href='#{contact_path}']"
   end
 
   #routing
@@ -36,6 +39,14 @@ class VenueIndexPage
 
   def has_destroy_button_for?(venue)
     has_css? destroy_button_for(venue)
+  end
+
+  def has_about_us_link?
+    has_css? @about_us_link
+  end
+
+  def has_contact_link?
+    has_css? @contact_link
   end
 
 

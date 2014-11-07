@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post '/send_new_venue_email' => "contact#send_new_venue_email"
 
   get 'maptest' => 'static_pages#map_test'
+  get 'about_us' => 'static_pages#about_us'
+  get 'contact' => 'static_pages#contact'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

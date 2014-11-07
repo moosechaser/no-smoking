@@ -15,7 +15,7 @@ function initializeShow() {
 
     var mapOptions = {
       center: { lat: venuePosition.lat(), lng: venuePosition.lng()},
-      zoom: 13,
+      zoom: 16,
       mapTypeControl: true,
       panControl: true,
       zoomControl: true,

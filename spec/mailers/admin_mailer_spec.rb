@@ -5,14 +5,7 @@ describe AdminMailer do
     let!(:venue) { FactoryGirl.create(:venue) }
     let!(:maker_email) { "asdf@asdf.com" }
     let!(:mail) { AdminMailer.new_venue_email(maker_email,
-                                              venue.name,
-                                              venue.latitude,
-                                              venue.longitude,
-                                              venue.link,
-                                              venue.address,
-                                              venue.venue_type,
-                                              venue.smoking_policy,
-                                              venue.description)}
+                                              venue)}
     
     it "has the email in the body" do
       expect(mail.body.encoded).to have_css "#email", text: maker_email

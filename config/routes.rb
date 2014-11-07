@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   resources :venues, only: [:index, :show, :new]
 
   post '/send_new_venue_email' => "contact#send_new_venue_email"
+  post '/send_feedback_email' => "contact#send_feedback_email"
 
   get 'maptest' => 'static_pages#map_test'
   get 'about_us' => 'static_pages#about_us'
-  get 'contact' => 'static_pages#contact'
+  get 'contact' => 'contact#feedback'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

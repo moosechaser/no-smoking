@@ -1,0 +1,14 @@
+<% provide(:title, "Contact Us") %>
+
+<%= form_tag send_feedback_email_path do %>
+  <%= label_tag 'email', 'Your email address (optional)' %>
+  <%= text_field_tag :email, nil, {class: "form-control",
+                                  id: "email"} %>
+
+
+  <%= label_tag 'body', 'Feedback' %>
+  <%= text_area_tag :body, nil, {class: "form-control",
+                                 id: "body"} %>
+
+  <%= submit_tag "Submit", id: "submit", class: "btn btn-primary" %>
+<% end %>

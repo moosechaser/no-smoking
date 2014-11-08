@@ -1,0 +1,19 @@
+<html>
+  <head></head>
+  <body>
+    <p>
+      Someone has submitted new feedback for Fun Fara Fum!
+    </p>
+      <h4>Submitter's email</h4>
+      <% if @email != "" %>
+        <span id="email"><%= @email %></span>
+      <% else %>
+        The submitter did not leave an email
+      <% end %>
+    <p>
+    <p>
+      <h4>Message</h4>
+      <%= @body %>
+    </p>
+  </body>
+</html>

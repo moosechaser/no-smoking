@@ -11,6 +11,17 @@ describe "venues#index" do
     expect(page.title.downcase).to match /all/
   end
 
+
+  it "should have a link to the about us page" do
+    expect(ui).to have_about_us_link
+  end
+
+
+  it "should have a link to the about us page" do
+    expect(ui).to have_contact_link
+  end
+
+
   context "when there are two venues" do
     let!(:venue_1) { FactoryGirl.create(:venue) }
     let!(:venue_2) { FactoryGirl.create(:venue) }

@@ -19,6 +19,42 @@ describe "venues#new" do
     }.to change{ ActionMailer::Base.deliveries.count }.by(1)
   end
 
+  describe "when the latLng is not set" do
+    let(:attrs){ FactoryGirl.attributes_for(:venue, latitude:"", longitude:"") }
+    let(:sender){ "asdf@asdf.com" }
+    before do
+      ui.create_new_venue_with_attributes attrs, sender: sender
+    end
+
+    it "should display a notice" do
+      puts page.html
+      expect(ui).to have_content("Please click the map")
+    end
+
+    it "should still have the filled in name " do
+      expect(ui.name).to eq attrs[:name]
+    end
+
+    it "should still have the filled in link " do
+      expect(ui.link).to eq attrs[:link]
+    end
+
+    it "should still have the filled in venue type " do
+      expect(ui.venue_type).to eq attrs[:venue_type]
+    end
+
+    it "should still have the filled in smoking policy " do
+      expect(ui.smoking_policy).to eq attrs[:smoking_policy]
+    end
+
+    it "should still have the filled in description " do
+      expect(ui.description).to eq attrs[:description]
+    end
+
+    it "should still have the filled in email" do
+      expect(ui.email).to eq sender
+    end
+  end
 
   describe "the email sent" do
     let!(:sender) { "asdf@asdf.com" }

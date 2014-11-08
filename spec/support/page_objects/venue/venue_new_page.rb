@@ -6,13 +6,13 @@ class VenueNewPage
     @page_path = new_venue_path
 
     @email_input =                  "#email"
-    @name_input =                   "#name"
+    @name_input =                   "#venue_name"
     @latitude_input =               "#input-lat"
     @longitude_input =              "#input-lng"
-    @link_input =                   "#link"
+    @link_input =                   "#venue_link"
     #@address_input =                "#address"
-    @venue_type_input =             "#venue_type"
-    @venue_smoking_policy_input =   "#smoking_policy"
+    @venue_type_input =             "#venue_venue_type"
+    @venue_smoking_policy_input =   "#venue_smoking_policy"
 
     @submit_button =                "#submit"
   end

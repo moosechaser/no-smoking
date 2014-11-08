@@ -3,39 +3,48 @@
     <div class="col-md-6">
       <div class="form-group">
         <%= f.label :name, 'Venue Name' %>
-        <%= f.text_field :name, class: "form-control", required: "required" %>
+        <%= f.text_field :name, {class: "form-control", 
+                                 id: "venue_name",
+                                 required: "required"} %>
       </div>
 
       <div class="form-group">
         <%= f.label :link, 'Their website address' %>
-        <%= f.text_field :link, class: "form-control" %>
+        <%= f.text_field :link, {class: "form-control",
+                                 id: "venue_link"} %>
       </div>
       <!--
     <div class="form-group">
       <%= f.label :address, 'address' %>
-      <%= f.text_field :address, class: "form-control" %>
+      <%= f.text_field :address, {class: "form-control", 
+                                  id: "venue_address"} %>
     </div>
     -->
       <div class="form-group">
         <%= f.label :venue_type %><br />
         <%= f.select :venue_type,
           options_for_select(@venue.all_venue_types, 0),
-          class: "form-control" %>
+          {class: "form-control"} %>
       </div>
 
       <div class="form-group">
         <%= f.label :smoking_policy %><br />
-        <%= f.select :smoking_policy, options_for_select(@venue.all_smoking_policies, 0), class: "form-control" %>
+        <%= f.select :smoking_policy, 
+          options_for_select(@venue.all_smoking_policies, 0), 
+          {class: "form-control", id: "venue_smoking_policy"} %>
       </div>
 
       <div class="form-group">
         <%= f.label :description, 'Describe the place (optional)' %>
-        <%= f.text_area :description, class: "form-control", rows: 3 %>
+        <%= f.text_area :description, {class: "form-control", 
+                                       id: "venue_description",
+                                       rows: 3} %>
       </div>
 
       <div class="form-group">
         <%= label :email, "Your email address (Don't worry, spam is for losers)" %>
-        <%= text_field_tag :email, nil, class: "form-control" %>
+        <%= text_field_tag :email, nil, {class: "form-control", 
+                                         id: "email"} %>
       </div>
 
     </div>
@@ -44,17 +53,15 @@
       <div class="col-xs-6">
         <%# <%= label_tag 'latitude', 'Lat:' %>
         <%= f.text_field :latitude, {id: "input-lat",
-                                            class: "form-control",
-                                            placeholder: "Latitude",
-                                            readonly: "readonly"} %>
+                                     class: "form-control",
+                                     placeholder: "Click map to fill latitude"} %>
       </div>
 
       <div class="col-xs-6">
         <%# <%= label_tag 'longitude', 'Lng:' %>
         <%= f.text_field :longitude, {id: "input-lng",
-                                             class: "form-control",
-                                             placeholder: "Longitude",
-                                             readonly: "readonly"} %>
+                                      class: "form-control",
+                                      placeholder: "Click map to fill longitude"} %>
       </div>
     </div>
   </div>

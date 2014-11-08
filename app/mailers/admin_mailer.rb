@@ -1,6 +1,7 @@
 class AdminMailer < ActionMailer::Base
   default to: "thomas.imorris@gmail.com"
   # default to: "silviu.straliciuc@gmail.com"
+
   default from: "new.venue@funfarafum.com"
 
 
@@ -18,10 +19,6 @@ class AdminMailer < ActionMailer::Base
   def new_venue_email(email = "", venue)
     @email = email
     @venue = venue
-
-    mail(
-      from:       "new.venue@funfarafum.com",
-      subject:    "A new venue needs admin approval"
-    )
+    mail(subject: "A new venue needs admin approval")
   end
 end

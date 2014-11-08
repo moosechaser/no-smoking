@@ -43,7 +43,7 @@
 
       <div class="form-group">
         <%= label :email, "Your email address (Don't worry, spam is for losers)" %>
-        <%= text_field_tag :email, nil, {class: "form-control", 
+        <%= text_field_tag :email, @sender_email, {class: "form-control",
                                          id: "email"} %>
       </div>
 

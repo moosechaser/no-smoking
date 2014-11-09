@@ -21,8 +21,9 @@ class VenuesController < ApplicationController
 
   def create
     @venue = Venue.new(venue_params)
+    @sender_email = email_params[:email]
     if @venue.valid?
-      AdminMailer.new_venue_email(email_params[:email], @venue).deliver
+      AdminMailer.new_venue_email(@sender_email, @venue).deliver
 
       redirect_to venues_path, notice: "Your venue has been submitted.  It will be posted after it is approved by an admin. Thanks!"
     else

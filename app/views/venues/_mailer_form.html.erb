@@ -23,14 +23,14 @@
       <div class="form-group">
         <%= f.label :venue_type %><br />
         <%= f.select :venue_type,
-          options_for_select(@venue.all_venue_types, 0),
+          options_for_select(@venue.all_venue_types, @venue.venue_type),
           {class: "form-control"} %>
       </div>
 
       <div class="form-group">
         <%= f.label :smoking_policy %><br />
         <%= f.select :smoking_policy, 
-          options_for_select(@venue.all_smoking_policies, 0), 
+          options_for_select(@venue.all_smoking_policies, @venue.smoking_policy),
           {class: "form-control", id: "venue_smoking_policy"} %>
       </div>
 
@@ -43,7 +43,7 @@
 
       <div class="form-group">
         <%= label :email, "Your email address (Don't worry, spam is for losers)" %>
-        <%= text_field_tag :email, nil, {class: "form-control", 
+        <%= text_field_tag :email, @sender_email, {class: "form-control",
                                          id: "email"} %>
       </div>
 

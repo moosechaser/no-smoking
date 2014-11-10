@@ -1,8 +1,7 @@
 require "spec_helper"
 
 describe "venues#new" do
-  let!(:venue) { FactoryGirl.create(:venue) }
-  let!(:ui) { VenueNewPage.new(venue) }
+  let!(:ui) { VenueNewPage.new() }
   
   before { ui.visit_page }
 
@@ -17,6 +16,20 @@ describe "venues#new" do
     expect{ 
       ui.create_new_venue_with_attributes attrs, sender: "asdf@asdf.com"
     }.to change{ ActionMailer::Base.deliveries.count }.by(1)
+  end
+
+  it "should increase the number of venues in the database" do
+    attrs = FactoryGirl.attributes_for(:venue)
+    expect{
+      ui.create_new_venue_with_attributes attrs, sender:"asdf@asdf.com"
+    }.to change{Venue.all.count}.by(1)
+  end
+
+  it "should create a venue that is not public" do
+    attrs = FactoryGirl.attributes_for(:venue)
+    expect{
+      ui.create_new_venue_with_attributes attrs, sender:"asdf@asdf.com"
+    }.not_to change{Venue.where(is_public?: true).count}
   end
 
   describe "when the latLng is not set" do

@@ -10,7 +10,12 @@ describe AdminMailer do
     it "has the email in the body" do
       expect(mail.body.encoded).to have_css "#email", text: maker_email
     end
-    
+
+    it "has the id in the body" do
+      expect(mail.body.encoded)
+        .to have_css "#id", text: venue.id
+    end
+
     it "has the name in the body" do
       expect(mail.body.encoded)
         .to have_css "#name", text: venue.name

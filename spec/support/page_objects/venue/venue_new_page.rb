@@ -2,7 +2,7 @@ class VenueNewPage
   include Capybara::DSL
   include Rails.application.routes.url_helpers
 
-  def initialize(venue)
+  def initialize()
     @page_path = new_venue_path
 
     @email_input =                  "#email"

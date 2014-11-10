@@ -32,6 +32,14 @@ describe "venues#index" do
     it { expect(page).to have_content venue_2.name }
   end
 
+  context "when there is a unpublished venue" do
+    let!(:unpublished_venue) { FactoryGirl.create(:venue, is_public?:false) }
+
+    before { ui.visit_page }
+
+    it { expect(page).not_to have_content unpublished_venue.name }
+  end
+
   describe "the details of a venue" do
     let!(:venue) { 
       FactoryGirl.create(:venue, 

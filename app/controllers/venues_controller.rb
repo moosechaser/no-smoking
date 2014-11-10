@@ -3,7 +3,7 @@ class VenuesController < ApplicationController
   respond_to :html, :xml, :json
 
   def index
-    @venues = Venue.all
+    @venues = Venue.where(is_public?:true)
     respond_with(@venues)
   end
 

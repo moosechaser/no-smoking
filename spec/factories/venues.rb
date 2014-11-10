@@ -11,6 +11,7 @@ FactoryGirl.define do
     venue_type      1
     smoking_policy  2
     description     "description"
+    is_public?      true
   end
 
 end

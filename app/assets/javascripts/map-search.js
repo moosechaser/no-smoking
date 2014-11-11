@@ -22,8 +22,7 @@ function initializeSearch() {
 
   //The search box
   var input = /** @type {HTMLInputElement} */(
-      document.getElementById('map_search'));
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+      document.getElementById('venue_name'));
 
   var searchBox = new google.maps.places.SearchBox(
       /** @type {HTMLInputElement} */(input));
@@ -67,6 +66,13 @@ function initializeSearch() {
     map.fitBounds(bounds);
   });
 
+   // Bias the SearchBox results towards places that are within the bounds
+   // of the
+   // current map's viewport.
+  google.maps.event.addListener(map, 'bounds_changed', function() {
+    var bounds = map.getBounds();
+    searchBox.setBounds(bounds);
+  });
 
   google.maps.event.addListener(map, 'click', function(event) {
     // put the marker where the map was clicked

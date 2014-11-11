@@ -29,10 +29,9 @@ function initializeSearch() {
   // pick list. Retrieve the matching places for that item.
   google.maps.event.addListener(searchBox, 'places_changed', function() {
     var places = searchBox.getPlaces();
+    // Don't do anything if nothing is found
+    if (places.length == 0) { return; }
 
-    if (places.length == 0) {
-      return;
-    }
     // for (var i = 0, marker; marker = markers[i]; i++) {
     //   marker.setMap(null);
     // }

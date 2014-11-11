@@ -21,11 +21,9 @@ function initializeSearch() {
 
 
   //The search box
-  var input = /** @type {HTMLInputElement} */(
-      document.getElementById('venue_name'));
+  var input = document.getElementById('venue_name');
+  var searchBox = new google.maps.places.SearchBox(input);
 
-  var searchBox = new google.maps.places.SearchBox(
-      /** @type {HTMLInputElement} */(input));
 
   // Listen for the event fired when the user selects an item from the
   // pick list. Retrieve the matching places for that item.

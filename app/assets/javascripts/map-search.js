@@ -1,3 +1,13 @@
+// prevent enter from submitting the form
+$(document).ready(function() {
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+
 function initializeSearch() {
   var mapElement = document.getElementById('map-search');
 

@@ -62,11 +62,19 @@ function initializeSearch() {
       });
 
       markers.push(marker);
-
       bounds.extend(place.geometry.location);
+
+      // mark the marker as "selected" if it's clicked
+      google.maps.event.addListener(marker, "click", function(event) {
+        selectMarker( this )
+      });
     }
 
     map.fitBounds(bounds);
+
+    // if there's only one result, assume that it is the one the user
+    // wanted
+    if (places.length == 1) { selectMarker(markers[0]) }
   });
 
  // Bias the SearchBox results towards places that are within the bounds

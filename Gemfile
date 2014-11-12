@@ -56,7 +56,10 @@ group :test do
   # gem 'rb-notifu', '0.0.4'
   # gem 'wdm', '0.1.0'
 end
- 
+
+gem 'bootstrap-sass', '~> 3.3.0'
+gem 'autoprefixer-rails', '~> 3.1.2.20141016'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
  

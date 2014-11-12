@@ -13,5 +13,10 @@
  *= require_self
  *= require_tree .
  */
+// Set the correct sprite paths
+$iconSpritePath: asset-url('glyphicons-halflings.png', image);
+$iconWhiteSpritePath: asset-url("glyphicons-halflings-white.png", image);
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+

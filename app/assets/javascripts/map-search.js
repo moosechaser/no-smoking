@@ -1,3 +1,6 @@
+var defaultIcon = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FE7569"
+var activeIcon = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+
 var markers = [];
 
 // prevent enter from submitting the form
@@ -57,6 +60,7 @@ function initializeSearch() {
       // Create a marker for each place.
       var marker = new google.maps.Marker({
         map: map,
+        icon: defaultIcon,
         title: place.name,
         position: place.geometry.location
       });
@@ -99,13 +103,16 @@ google.maps.event.addDomListener(window, 'load', initializeSearch);
 
 // Sets the passed place as being the one selected by the user
 function selectMarker( marker ){
-  for (var i = 0; i < gmarkers.length; i++) {
-    gmarkers[i].setIcon(defaultIcon);
-  }
-  activeIcon = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+  resetMarkers()
 
   //set the hidden fields
   $('#input-lat').val(marker.getPosition().lat());
   $('#input-lng').val(marker.getPosition().lng());
   marker.setIcon( activeIcon )
+}
+
+function resetMarkers(){
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setIcon(defaultIcon);
+  }
 }

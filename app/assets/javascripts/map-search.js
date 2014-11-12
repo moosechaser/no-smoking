@@ -1,3 +1,5 @@
+var markers = [];
+
 // prevent enter from submitting the form
 $(document).ready(function() {
   $(window).keydown(function(event){
@@ -39,15 +41,17 @@ function initializeSearch() {
   // pick list. Retrieve the matching places for that item.
   google.maps.event.addListener(searchBox, 'places_changed', function() {
     var places = searchBox.getPlaces();
+
     // Don't do anything if nothing is found
     if (places.length == 0) { return; }
 
-    // for (var i = 0, marker; marker = markers[i]; i++) {
-    //   marker.setMap(null);
-    // }
+    for (var i = 0, marker; marker = markers[i]; i++) {
+      marker.setMap(null);
+    }
 
-    // For each place, get the icon, place name, and location.
+    // For each place, get the place name and location.
     markers = [];
+
     var bounds = new google.maps.LatLngBounds();
     for (var i = 0, place; place = places[i]; i++) {
       // Create a marker for each place.

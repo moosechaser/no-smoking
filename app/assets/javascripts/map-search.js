@@ -91,7 +91,7 @@ function initializeSearch() {
 
   google.maps.event.addListener(map, 'click', function(event) {
     // put the marker where the map was clicked
-    marker.setPosition(event.latLng);
+    placeSelectedMarker(event.latLng, map);
 
     // set the latitude and longitude
     $('#input-lat').val(event.latLng.lat());

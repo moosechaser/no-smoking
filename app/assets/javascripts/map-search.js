@@ -116,3 +116,11 @@ function resetMarkers(){
     markers[i].setIcon(defaultIcon);
   }
 }
+
+
+function clearUserMarkers() {
+  if (typeof userPlacedMarker !== "undefined") {
+    userPlacedMarker.setMap(null);
+  }
+}
+

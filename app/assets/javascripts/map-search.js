@@ -2,6 +2,7 @@ var defaultIcon = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld
 var activeIcon = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
 
 var markers = [];
+var userPlacedMarker;
 
 // prevent enter from submitting the form
 $(document).ready(function() {
@@ -111,6 +112,7 @@ function selectMarker( marker ){
   marker.setIcon( activeIcon )
 }
 
+
 function resetMarkers(){
   for (var i = 0; i < markers.length; i++) {
     markers[i].setIcon(defaultIcon);
@@ -124,3 +126,14 @@ function clearUserMarkers() {
   }
 }
 
+
+function placeSelectedMarker(position, map) {
+  clearUserMarkers();
+
+  userPlacedMarker = new google.maps.Marker({
+    position: position,
+    map: map
+  });
+
+  selectMarker(userPlacedMarker);
+}

@@ -77,7 +77,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Precompile the assets in production ( or else glyphicons won't work )
-  config.assets.precompile += %w( '.woff', '.eot', '.svg', '.ttf' )
+  config.assets.precompile += %w( *.woff, *.eot *.svg *.ttf )
 
   NoSmoking::Application.configure do
     config.action_mailer.smtp_settings = {

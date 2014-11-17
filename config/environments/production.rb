@@ -78,4 +78,20 @@ Rails.application.configure do
 
   # Precompile the assets in production ( or else glyphicons won't work )
   config.assets.precompile += %w( '.woff', '.eot', '.svg', '.ttf' )
+
+  NoSmoking::Application.configure do
+    config.action_mailer.smtp_settings = {
+      :address   => "smtp.mandrillapp.com",
+      :port      => 2525, # ports 587 and 2525 are also supported with STARTTLS
+      :enable_starttls_auto => true, # detects and uses STARTTLS
+      :user_name => ENV['mandrill_username_dev'],
+      :password  => ENV['mandrill_password_dev'], # SMTP password is any valid API key
+      :authentication => 'login', # Mandrill supports 'plain' or 'login'
+      :domain => 'mealapp.com', # your domain to identify your server when connecting
+    }
+
+    # Raise an error if the mail can't be sent
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  end
 end

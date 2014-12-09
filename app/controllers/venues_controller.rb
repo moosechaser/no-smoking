@@ -25,6 +25,7 @@ class VenuesController < ApplicationController
 
     if @venue.save
       AdminMailer.new_venue_email(@sender_email, @venue).deliver
+      @venue.update(is_public?:true)
 
       redirect_to venues_path, notice: "Your venue has been submitted.  It will be posted after it is approved by an admin. Thanks!"
     else

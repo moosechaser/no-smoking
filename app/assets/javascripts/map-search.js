@@ -71,7 +71,8 @@ function initializeSearch() {
 
       // mark the marker as "selected" if it's clicked
       google.maps.event.addListener(marker, "click", function(event) {
-        selectMarker( this )
+        clearUserMarkers();
+        selectMarker( this );
       });
     }
 

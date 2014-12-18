@@ -1,4 +1,4 @@
-var defaultIcon = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|999999"
+var defaultIcon = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|AAAAAA"
 var activeIcon = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
 
 var markers = [];

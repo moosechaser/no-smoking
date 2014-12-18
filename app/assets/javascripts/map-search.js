@@ -105,7 +105,7 @@ google.maps.event.addDomListener(window, 'load', initializeSearch);
 
 // Sets the passed place as being the one selected by the user
 function selectMarker( marker ){
-  resetMarkers();
+  unselectGoogleMarkers();
 
   //set the hidden fields
   $('#input-lat').val(marker.getPosition().lat());
@@ -114,7 +114,7 @@ function selectMarker( marker ){
 }
 
 
-function resetMarkers(){
+function unselectGoogleMarkers(){
   for (var i = 0; i < markers.length; i++) {
     markers[i].setIcon(defaultIcon);
   }

@@ -2,7 +2,7 @@ var defaultIcon = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld
 var activeIcon = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
 
 var markers = [];
-var userPlacedMarker;
+var userPlacedMarker = null;
 
 // prevent enter from submitting the form
 $(document).ready(function() {
@@ -120,8 +120,9 @@ function unselectGoogleMarkers(){
 
 
 function clearUserMarkers() {
-  if (typeof userPlacedMarker !== "undefined") {
+  if (typeof userPlacedMarker !== "null") {
     userPlacedMarker.setMap(null);
+    userPlacedMarker = null;
   }
 }
 

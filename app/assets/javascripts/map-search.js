@@ -49,10 +49,7 @@ function initializeSearch() {
     // Don't do anything if nothing is found
     if (places.length == 0) { return; }
 
-    //Clear all markers on the map away
-    for (var i = 0, marker; marker = markers[i]; i++) {
-      marker.setMap(null);
-    }
+    clearAllMarkers();
 
     // For each place, get the place name and location.
     markers = [];
@@ -125,6 +122,13 @@ function unselectGoogleMarkers(){
 function clearUserMarkers() {
   if (typeof userPlacedMarker !== "undefined") {
     userPlacedMarker.setMap(null);
+  }
+}
+
+
+function clearAllMarkers(){
+  for (var i = 0, marker; marker = markers[i]; i++) {
+    marker.setMap(null);
   }
 }
 

@@ -49,6 +49,7 @@ function initializeSearch() {
     // Don't do anything if nothing is found
     if (places.length == 0) { return; }
 
+    //Clear all markers on the map away
     for (var i = 0, marker; marker = markers[i]; i++) {
       marker.setMap(null);
     }

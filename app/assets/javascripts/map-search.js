@@ -131,7 +131,7 @@
 
   // Fill the appropriate inputs with the marker's information
   function fillInputsWithMarkerInformation( marker ){
-    fillAddress( marker );
+    $('#venue_address').val(marker.address);          //address
     $('#venue_name').val(marker.name);                //name
     $('#input-lat').val(marker.getPosition().lat());  //latitude
     $('#input-lng').val(marker.getPosition().lng());  //longitute

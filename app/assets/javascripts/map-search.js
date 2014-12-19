@@ -68,7 +68,8 @@
           icon: defaultIcon,
           title: place.name,
           position: place.geometry.location,
-          address: place.formatted_address
+          address: place.formatted_address,
+          name: place.name
         });
 
         markers.push(marker);

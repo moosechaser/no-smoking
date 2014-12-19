@@ -29,7 +29,7 @@ class VenuesController < ApplicationController
 
       redirect_to venues_path, notice: "Your venue has been submitted.  It will be posted after it is approved by an admin. Thanks!"
     else
-      flash[:notice] = "Please click the map to set the coordinates"
+      flash[:error] = "Please click the map to set the coordinates"
       respond_with(@venue)
     end
   end

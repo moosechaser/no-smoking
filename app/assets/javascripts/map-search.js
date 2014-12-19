@@ -143,11 +143,11 @@
     var text = $description.val();
 
     // remove any old address
-    text = text.replace( /^[aA]ddress: (.*)$/, "" ); 
+    text = text.replace( /^ -- [aA]ddress: (.*)--/, "" ); 
 
     // put in any new address
     if( typeof marker.address != "undefined" ){
-      text = text + "Address: " + marker.address;
+      text = text + " -- Address: " + marker.address + " -- ";
     }
 
     $description.val(text);

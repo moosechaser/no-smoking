@@ -131,26 +131,10 @@
 
   // Fill the appropriate inputs with the marker's information
   function fillInputsWithMarkerInformation( marker ){
-    fillAddress( marker );
+    $('#venue_address').val(marker.address);          //address
     $('#venue_name').val(marker.name);                //name
     $('#input-lat').val(marker.getPosition().lat());  //latitude
     $('#input-lng').val(marker.getPosition().lng());  //longitute
-  }
-
-
-  function fillAddress( marker ){
-    var $description = $("#venue_description");
-    var text = $description.val();
-
-    // remove any old address
-    text = text.replace( /^ -- [aA]ddress: (.*)--/, "" ); 
-
-    // put in any new address
-    if( typeof marker.address != "undefined" ){
-      text = text + " -- Address: " + marker.address + " -- ";
-    }
-
-    $description.val(text);
   }
 
 

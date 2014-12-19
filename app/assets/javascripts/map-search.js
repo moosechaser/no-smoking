@@ -115,9 +115,14 @@
   function selectMarker( marker ){
     unselectGoogleMarkers();
 
-    //set the hidden fields
-    $('#input-lat').val(marker.getPosition().lat());
-    $('#input-lng').val(marker.getPosition().lng());
+    var $description = $("#venue_description");
+
+    //fill the appropriate inputs with the marker's information
+    $description.val($description.val() + marker.address); //address
+    $('#input-lat').val(marker.getPosition().lat()); //latitude
+    $('#input-lng').val(marker.getPosition().lng()); //longitute
+
+
     marker.setIcon( activeIcon )
   }
 

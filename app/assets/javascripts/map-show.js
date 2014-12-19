@@ -36,4 +36,5 @@ function initializeShow() {
     console.log("error: ",response);
   });
 }
+
 google.maps.event.addDomListener(window, 'load', initializeShow);

@@ -67,7 +67,8 @@
           map: map,
           icon: defaultIcon,
           title: place.name,
-          position: place.geometry.location
+          position: place.geometry.location,
+          address: place.formatted_address
         });
 
         markers.push(marker);

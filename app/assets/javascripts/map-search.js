@@ -115,13 +115,7 @@
   function selectMarker( marker ){
     unselectGoogleMarkers();
 
-    var $description = $("#venue_description");
-
-    //fill the appropriate inputs with the marker's information
-    $description.val($description.val() + marker.address); //address
-    $('#input-lat').val(marker.getPosition().lat()); //latitude
-    $('#input-lng').val(marker.getPosition().lng()); //longitute
-
+    fillInputsWithMarkerInformation( marker );
 
     marker.setIcon( activeIcon )
   }
@@ -131,6 +125,30 @@
     for (var i = 0; i < markers.length; i++) {
       markers[i].setIcon(defaultIcon);
     }
+  }
+
+
+  // Fill the appropriate inputs with the marker's information
+  function fillInputsWithMarkerInformation( marker ){
+    fillAddress( marker );
+    $('#input-lat').val(marker.getPosition().lat()); //latitude
+    $('#input-lng').val(marker.getPosition().lng()); //longitute
+  }
+
+
+  function fillAddress( marker ){
+    var $description = $("#venue_description");
+    var text = $description.val();
+
+    // remove any old address
+    text = text.replace( /^[aA]ddress: (.*)$/, "" ); 
+
+    // put in any new address
+    if( typeof marker.address != "undefined" ){
+      text = text + "Address: " + marker.address;
+    }
+
+    $description.val(text);
   }
 
 

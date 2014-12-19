@@ -138,22 +138,6 @@
   }
 
 
-  function fillAddress( marker ){
-    var $description = $("#venue_description");
-    var text = $description.val();
-
-    // remove any old address
-    text = text.replace( /^ -- [aA]ddress: (.*)--/, "" ); 
-
-    // put in any new address
-    if( typeof marker.address != "undefined" ){
-      text = text + " -- Address: " + marker.address + " -- ";
-    }
-
-    $description.val(text);
-  }
-
-
   function clearUserMarkers() {
     if (typeof userPlacedMarker !== "undefined") {
       userPlacedMarker.setMap(null);

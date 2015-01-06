@@ -67,7 +67,9 @@
           map: map,
           icon: defaultIcon,
           title: place.name,
-          position: place.geometry.location
+          position: place.geometry.location,
+          address: place.formatted_address,
+          name: place.name
         });
 
         markers.push(marker);
@@ -114,9 +116,8 @@
   function selectMarker( marker ){
     unselectGoogleMarkers();
 
-    //set the hidden fields
-    $('#input-lat').val(marker.getPosition().lat());
-    $('#input-lng').val(marker.getPosition().lng());
+    fillInputsWithMarkerInformation( marker );
+
     marker.setIcon( activeIcon )
   }
 
@@ -125,6 +126,15 @@
     for (var i = 0; i < markers.length; i++) {
       markers[i].setIcon(defaultIcon);
     }
+  }
+
+
+  // Fill the appropriate inputs with the marker's information
+  function fillInputsWithMarkerInformation( marker ){
+    $('#venue_address').val(marker.address);          //address
+    $('#venue_name').val(marker.name);                //name
+    $('#input-lat').val(marker.getPosition().lat());  //latitude
+    $('#input-lng').val(marker.getPosition().lng());  //longitute
   }
 
 

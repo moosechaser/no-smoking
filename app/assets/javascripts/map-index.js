@@ -1,4 +1,5 @@
 var noSmoking = noSmoking || {};
+noSmoking.markers = noSmoking.markers || {};
 
 (function(ns){
 
@@ -35,6 +36,8 @@ var noSmoking = noSmoking || {};
 
     ns.map = new google.maps.Map(mapElement, mapOptions);
 
+    ns.markers.infoWindow = new google.maps.InfoWindow();
+
     $.ajax({
       url: "venues.json"
     }).done(function(venues) {
@@ -57,11 +60,21 @@ var noSmoking = noSmoking || {};
       });
 
       markers[venue.id] = m;
+      addInfoWindowEvent(m,venue);
     }
 
     return markers;
   };
 
+  var addInfoWindowEvent = function(marker,venue){
+    google.maps.event.addListener(marker, 'click', function() {
+
+      ns.markers.deselectAll();
+      ns.markers.select(marker);
+      ns.markers.showInfoWindow(marker,venue);
+
+    });
+  };
 
   google.maps.event.addDomListener(window, 'load', initialize);
 

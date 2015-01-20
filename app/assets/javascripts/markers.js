@@ -1,34 +1,39 @@
 var noSmoking = noSmoking || {};
 noSmoking.markers = noSmoking.markers || {};
 
-(function(ns){
-  ns.items = ns.items || {};
+(function(m){
+  m.items = m.items || {};
 
-  ns.defaultIcon = "http://maps.google.com/mapfiles/marker.png";
-  ns.activeIcon = 'http://maps.google.com/mapfiles/marker_white.png';
+  m.defaultIcon = "http://maps.google.com/mapfiles/marker.png";
+  m.activeIcon = 'http://maps.google.com/mapfiles/marker_white.png';
 
-  ns.deselectAll = function () {
-    for(var id in ns.items){
-      if(ns.items.hasOwnProperty(id)){
-        ns.items[id].setIcon(ns.defaultIcon);
+  m.deselectAll = function () {
+    for(var id in m.items){
+      if(m.items.hasOwnProperty(id)){
+        m.items[id].setIcon(m.defaultIcon);
       }
     }
   };
 
-  ns.select = function( marker ){
-    marker.setIcon( ns.activeIcon );
+  m.select = function( marker ){
+    marker.setIcon( m.activeIcon );
   };
-  ns.selectById = function( markerId ){
-    var marker = ns.items[markerId];
-    ns.select(marker);
-  };
-
-  ns.deselect = function( marker ){
-    marker.setIcon( ns.defaultIcon );
-  };
-  ns.deselectById = function( markerId ){
-    var marker = ns.items[markerId];
-    ns.deselect(marker);
+  m.selectById = function( markerId ){
+    var marker = m.items[markerId];
+    m.select(marker);
   };
 
+  m.deselect = function( marker ){
+    marker.setIcon( m.defaultIcon );
+  };
+  m.deselectById = function( markerId ){
+    var marker = m.items[markerId];
+    m.deselect(marker);
+  };
+
+  m.showInfoWindow = function( marker, venue ){
+    m.infoWindow.setContent(venue.name);
+    m.infoWindow.setPosition(marker.position);
+    m.infoWindow.open(noSmoking.map, marker);
+  }
 })(noSmoking.markers);
